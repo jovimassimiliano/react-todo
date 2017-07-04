@@ -1,0 +1,16 @@
+.todo{
+   .checkbox{
+       display: inline;
+   }
+   .text{
+       display: inline-block;
+   }
+}
+
+.todo-completed{
+    .text{
+       display: inline-block;
+       text-decoration: line-through;
+   }
+    color: #e6e9ec;
+}
