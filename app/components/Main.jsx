@@ -1,15 +1,13 @@
-var React = require("react");
-var uuid = require("node-uuid");
-var moment = require("moment");
-
+import React from "react";
+import * as Redux from "react-redux";
+import * as actions from "actions";
 
 import Todolist from "Todolist";
 import AddTodo from "AddTodo";
 import TodoSearch from "TodoSearch";
 
 
-
-var Main = React.createClass({
+export var Main = React.createClass({
   // getInitialState: function() {
   //   return {
   //     showCompleted:false,
@@ -41,11 +39,17 @@ var Main = React.createClass({
   //
   //   });
   // },
-  render: function() {
+  onLogout(e){
+    var {dispatch} = this.props;
+    e.preventDefault();
+    dispatch(actions.startLogout());
+  },
+  render() {
     // var {todos,showCompleted,searchText} = this.state;
     // var filteredTodos = TodoAPI.filterTodos(todos,showCompleted,searchText);
     return (
       <div className="row">
+        <a href="#" className="logout" onClick={this.onLogout}>Logout</a>
         <h1 className="page-title">What-to-do</h1>
         <div className="column small-centered small-11 medium-6 large-4">
           <TodoSearch/>
@@ -57,4 +61,4 @@ var Main = React.createClass({
   }
 })
 
-module.exports = Main;
+export default Redux.connect() (Main);

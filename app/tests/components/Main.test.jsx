@@ -4,7 +4,7 @@ var ReactDOM = require("react-dom");
 var TestUtils = require("react-addons-test-utils");
 var $ = require("jquery");
 var {Provider} = require("react-redux");
-var Main = require("Main");
+import {Main} from "Main";
 import ConnectedTodolist, {Todolist} from "Todolist";
 
 var configureStore = require("configureStore");
