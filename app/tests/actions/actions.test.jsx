@@ -88,6 +88,26 @@ describe("Actions",() => {
 
   });
 
+  it("should generate login action", () => {
+    const action = {
+      type: "LOGIN",
+      uid: "123abc"
+    };
+
+    const res = actions.login(action.uid);
+    expect(res).toEqual(action);
+  });
+
+  it("should generate logout action", () => {
+    const action = {
+      type:"LOGOUT",
+      uid: "123abc"
+    };
+
+    const res = actions.logout();
+    expect(res.uid).toNotExist();
+  });
+
   describe("Tests with firebase todos", () => {
     var todoTestRef;
 

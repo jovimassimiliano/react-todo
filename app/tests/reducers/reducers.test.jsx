@@ -92,3 +92,28 @@ describe("Reducers", () => {
     });
   });
 });
+
+describe("authReducer", () => {
+  it("should add login auth", () => {
+    const action = {
+      type: "LOGIN",
+      uid:"123"
+    };
+
+    const res = reducers.authReducer(undefined,df(action));
+    expect(res).toEqual({
+      uid: action.uid
+    });
+  });
+
+  it("should logout auth", () => {
+    const authData = {
+      uid:"123"
+    }
+    const action = {
+      type:"LOGOUT"
+    };
+    const res = reducers.authReducer(df(authData),df(action));
+    expect(res).toEqual({});
+  });
+});
