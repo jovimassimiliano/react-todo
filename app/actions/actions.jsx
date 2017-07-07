@@ -126,6 +126,6 @@ export var login = (uid) => {
 
 export var logout = () => {
   return{
-    type:"LOGOUT"
+    type:"LOGOUT",
   }
 }

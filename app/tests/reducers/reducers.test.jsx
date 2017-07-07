@@ -90,6 +90,24 @@ describe("Reducers", () => {
       expect(res.length).toEqual(1);
       expect(res[0]).toEqual(todos[0]);
     });
+
+    it("should remove todos when logout", () => {
+      var todos = [{
+        id:1,
+        text:"test",
+        completed:false,
+        createdAt:1000,
+        completedAt:undefined
+      }];
+
+      var action = {
+        type:"LOGOUT",
+        todos
+      };
+
+      var res = reducers.todosReducer(df(todos), df(action));
+      expect(res.length).toEqual(0);
+    })
   });
 });
 
